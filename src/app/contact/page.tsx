@@ -7,10 +7,10 @@ export default function ContactPage() {
  <p>
  <strong>Email:</strong>{" "}
  <a
- href="mailto:nguyenvana@sv.dlu.edu.vn"
+ href="mailto:nguyenhoangkiet@sv.dlu.edu.vn"
  className="text-blue-600 hover:underline"
  >
- nguyenvana@sv.dlu.edu.vn
+ nguyenhoangkiet@sv.dlu.edu.vn
  </a>
     </p>
     <p>
@@ -23,6 +23,9 @@ export default function ContactPage() {
  >
  github.com/2212398
  </a>
+ </p>
+ <p>
+ <strong>Trường:</strong> Đại học Đà Lạt - Khoa Công nghệ Thông tin
  </p>
  <p>
  <strong>Địa chỉ:</strong> Đại học Đà Lạt, 01 Phù Đổng Thiên Vương, Đà Lạt

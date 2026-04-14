@@ -1,18 +1,27 @@
 const projects = [
  {
- title: "Website Portfolio",
- description: "Website cá nhân xây dựng bằng Next.JS và Tailwind CSS",
- tech: ["Next.JS", "Tailwind CSS", "TypeScript"],
+ title: "Hệ thống nhận diện bệnh lá cây",
+ description:
+ "Đồ án cá nhân sử dụng mô hình MobileNetV3 để nhận diện cây trồng và bệnh trên lá, triển khai API bằng FastAPI.",
+ tech: ["Python", "FastAPI", "PyTorch", "OpenCV", "MobileNetV3"],
  },
  {
- title: "Ứng dụng Quản lý Công việc",
- description: "Ứng dụng Todo App với React và Local Storage",
- tech: ["React", "CSS Modules", "JavaScript"],
+ title: "Website Portfolio cá nhân",
+ description:
+ "Website portfolio học phần Các công nghệ mới trong PTPM, xây dựng bằng Next.js App Router và Tailwind CSS.",
+ tech: ["Next.js", "TypeScript", "Tailwind CSS"],
  },
  {
- title: "API RESTful",
- description: "API quản lý sản phẩm với Node.js và Express",
- tech: ["Node.js", "Express", "MongoDB"],
+ title: "Ứng dụng quản lý công việc nhóm",
+ description:
+ "Ứng dụng hỗ trợ theo dõi tiến độ công việc theo nhóm với chức năng giao việc, cập nhật trạng thái và thống kê cơ bản.",
+ tech: ["React", "Node.js", "Express", "PostgreSQL"],
+ },
+ {
+ title: "API quản lý thư viện mini",
+ description:
+ "Xây dựng REST API cho bài tập môn học, quản lý sách, độc giả và lịch sử mượn trả với xác thực JWT.",
+ tech: ["Node.js", "Express", "JWT", "MongoDB"],
  },
 ];
 export default function ProjectsPage() {
@@ -31,7 +40,7 @@ export default function ProjectsPage() {
  {project.tech.map((t) => (
  <span
  key={t}
- className="bg-blue-100 text-blue-700 text-sm px-3 py-1 roundedfull"
+ className="bg-blue-100 text-blue-700 text-sm px-3 py-1 rounded-full"
  >
  {t}
  </span>
