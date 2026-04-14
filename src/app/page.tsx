@@ -1,4 +1,7 @@
 ﻿import Link from "next/link";
+import Counter from "@/components/counter";
+import ThemeToggle from "@/components/theme-toggle";
+import CopyButton from "@/components/copy-button";
 
 export default function HomePage() {
  return (
@@ -55,6 +58,25 @@ export default function HomePage() {
  {skill}
  </div>
  ))}
+ </div>
+ </div>
+
+ {/* Client components section */}
+ <div className="mb-16">
+ <h2 className="text-2xl font-bold text-center mb-8">Tương tác nhanh</h2>
+ <div className="grid gap-4 md:grid-cols-3">
+ <div className="rounded-xl border border-gray-200 p-5 bg-white">
+ <p className="font-medium mb-3">Counter</p>
+ <Counter />
+ </div>
+ <div className="rounded-xl border border-gray-200 p-5 bg-white">
+ <p className="font-medium mb-3">ThemeToggle</p>
+ <ThemeToggle />
+ </div>
+ <div className="rounded-xl border border-gray-200 p-5 bg-white">
+ <p className="font-medium mb-3">CopyButton</p>
+ <CopyButton textToCopy="nguuyenben2004@gmail.com" />
+ </div>
  </div>
  </div>
 
