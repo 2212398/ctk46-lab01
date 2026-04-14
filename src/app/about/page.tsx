@@ -2,12 +2,12 @@ export default function AboutPage() {
      return (
  <div className="max-w-5xl mx-auto px-4 py-12">
  <h1 className="text-3xl font-bold mb-6">Giới thiệu</h1>
- <div className="space-y-4 text-gray-700">
+ <div className="space-y-4 text-gray-700 dark:text-gray-200">
  <p>
  Xin chào! Tôi là <strong>Nguyễn Hoàng Kiệt</strong>, sinh viên năm 4
  ngành Công nghệ Thông tin tại Đại học Đà Lạt.
  </p>
- <div className="bg-gray-50 rounded-lg p-4 space-y-2">
+ <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 space-y-2">
  <p>
  <strong>Họ và tên:</strong> Nguyễn Hoàng Kiệt
  </p>
@@ -35,9 +35,9 @@ export default function AboutPage() {
  <li>SQL & PostgreSQL</li>
  </ul>
  <h2 className="text-2xl font-semibold mt-8 mb-4">Học vấn</h2>
- <div className="bg-gray-50 rounded-lg p-4">
+ <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
  <p className="font-medium">Đại học Đà Lạt</p>
- <p className="text-gray-500">Cử nhân Công nghệ Thông tin (2021 -
+ <p className="text-gray-500 dark:text-gray-400">Cử nhân Công nghệ Thông tin (2021 -
 2026)</p>
  </div>
  </div>

@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 export default function BlogError({
  error,
  reset,
@@ -7,16 +7,16 @@ export default function BlogError({
  reset: () => void;
 }) {
  return (
- <div className="text-center py-12">
+ <div className="text-center py-12 px-4">
  <h2 className="text-2xl font-bold text-red-600 mb-4">
  Đã xảy ra lỗi!
  </h2>
- <p className="text-gray-600 mb-6">
+ <p className="text-gray-600 dark:text-gray-300 mb-6">
  {error.message || "Không thể tải nội dung blog. Vui lòng thử lại."}
  </p>
  <button
  onClick={() => reset()}
- className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700
+ className="bg-emerald-600 text-white px-6 py-2 rounded-lg hover:bg-emerald-700
 transition-colors"
  >
  Thử lại
