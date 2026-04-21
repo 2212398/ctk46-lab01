@@ -16,10 +16,10 @@
  </a>
  <span className="text-gray-400 dark:text-gray-600">|</span>
  <a
- href="mailto:nguuyenben2004@gmail.com"
+ href="mailto:2212398@dlu.edu.vn"
  className="text-emerald-600 hover:underline dark:text-emerald-400"
  >
- nguuyenben2004@gmail.com
+ 2212398@dlu.edu.vn
  </a>
  </p>
  </div>

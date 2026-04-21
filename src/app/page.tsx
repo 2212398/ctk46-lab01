@@ -75,7 +75,7 @@ export default function HomePage() {
  </div>
  <div className="rounded-xl border border-gray-200 p-5 bg-white">
  <p className="font-medium mb-3">CopyButton</p>
- <CopyButton textToCopy="nguuyenben2004@gmail.com" />
+ <CopyButton textToCopy="2212398@dlu.edu.vn" />
  </div>
  </div>
  </div>
