@@ -1,38 +1,68 @@
 ﻿import Link from "next/link";
-import { posts } from "@/data/posts";
-export default function BlogPage() {
+import { notFound } from "next/navigation";
+import { Post, User } from "@/types/post";
+interface BlogPostPageProps {
+ params: Promise<{ id: string }>;
+}
+async function getPost(id: string): Promise<Post> {
+ const res = await fetch(
+ `https://jsonplaceholder.typicode.com/posts/${id}`
+ );
+ if (!res.ok) {
+ notFound();
+ }
+ return res.json();
+}
+async function getUser(userId: number): Promise<User> {
+ const res = await fetch(
+ `https://jsonplaceholder.typicode.com/users/${userId}`
+ );
+ if (!res.ok) {
+ throw new Error("Không thể tải thông tin tác giả");
+ }
+ return res.json();
+}
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+ const { id } = await params;
+ const post = await getPost(id);
+ const author = await getUser(post.userId);
  return (
  <div>
- <h1 className="text-3xl font-bold mb-6">Blog</h1>
- <div className="space-y-6">
- {posts.map((post) => (
- <article
- key={post.slug}
- className="border border-gray-200 dark:border-gray-800 rounded-lg p-6 bg-white dark:bg-gray-900 hover:shadow-md transition-shadow"
-  >
- <div className="flex items-center gap-3 mb-2">
- <span className="bg-emerald-100 text-emerald-700 text-xs px-2 py-1
-rounded">
- {post.category}
- </span>
- <span className="text-sm text-gray-400">{post.date}</span>
- </div>
- <Link href={`/blog/${post.slug}`}>
- <h2 className="text-xl font-semibold mb-2 hover:text-emerald-600
-transition-colors">
- {post.title}
- </h2>
- </Link>
- <p className="text-gray-600 dark:text-gray-300">{post.excerpt}</p>
  <Link
- href={`/blog/${post.slug}`}
- className="inline-block mt-3 text-emerald-600 dark:text-emerald-400 text-sm hover:underline"
+ href="/blog"
+ className="text-blue-600 hover:underline text-sm mb-6 inline-block"
  >
- Đọc thêm →
+ ← Quay lại danh sách
  </Link>
- </article>
- ))}
+ <article>
+ <h1 className="text-3xl font-bold mb-4 capitalize">{post.title}</h1>
+ <div className="flex items-center gap-3 mb-6 text-sm text-gray-500">
+ <span>Tác giả: <strong className="text-gray700">{author.name}</strong></span>
+ <span>•</span>
+ <span>{author.email}</span>
  </div>
+ <div className="prose max-w-none text-gray-700 whitespace-pre-line mb-8
+leading-relaxed">
+ {post.body}
+ </div>
+ <div className="border-t pt-6">
+ <h3 className="font-semibold mb-2">Về tác giả</h3>
+ <p className="text-gray-600 text-sm">
+ <strong>{author.name}</strong> (@{author.username}) —
+{author.company.name}
+ </p>
+ <p className="text-gray-500 text-sm">{author.company.catchPhrase}</p>
+ </div>
+ </article>
  </div>
  );
+ async function getPosts(): Promise<Post[]> {
+ const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+ next: { revalidate: 60 },
+ });
+ if (!res.ok) {
+ throw new Error("Không thể tải danh sách bài viết");
+ }
+ return res.json();
+}
 }
