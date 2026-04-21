@@ -3,6 +3,7 @@ import GuestbookForm from "@/components/guestbook-form";
 import DeleteButton from "@/components/delete-button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 export default function GuestbookPage() {
  const entries = guestbookEntries;
@@ -31,6 +32,16 @@ export default function GuestbookPage() {
  </span>
  <DeleteButton id={entry.id} />
  </div>
+ <div className="flex items-center gap-3">
+  <Avatar className="w-8 h-8">
+    <AvatarFallback className="bg-blue-100 text-blue-700">
+      {entry.name.charAt(0).toUpperCase()}
+    </AvatarFallback>
+  </Avatar>
+  <span className="font-semibold text-gray-800">
+    {entry.name}
+  </span>
+</div>
  </div>
 
  <p className="text-gray-600">{entry.message}</p>

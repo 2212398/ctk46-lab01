@@ -2,6 +2,11 @@
 
 import { useActionState } from "react";
 import { sendContactMessage, ContactFormState } from "./actions";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { Card, CardContent } from "@/components/ui/card";
 
 const initialState: ContactFormState = {
  success: false,
@@ -51,6 +56,57 @@ export default function ContactPage() {
  Đại học Đà Lạt, 01 Phù Đổng Thiên Vương, Đà Lạt
  </p>
  </div>
+ {/* Form liên hệ */}
+<div className="md:col-span-2">
+  {state.success ? (
+    <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
+      <h3 className="text-green-700 font-semibold text-lg mb-2">Gửi thành công!</h3>
+      <p className="text-green-600">Cảm ơn bạn đã liên hệ. Tôi sẽ phản hồi sớm nhất có thể.</p>
+    </div>
+  ) : (
+    <Card>
+      <CardContent className="pt-6">
+        <form action={formAction} className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="name">Họ và tên</Label>
+            <Input id="name" name="name" placeholder="Nguyễn Văn A" required />
+            {state.errors?.name && (
+              <p className="text-red-500 text-sm">{state.errors.name[0]}</p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="email">Email</Label>
+            <Input id="email" name="email" type="email" placeholder="email@example.com" required />
+            {state.errors?.email && (
+              <p className="text-red-500 text-sm">{state.errors.email[0]}</p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="subject">Tiêu đề</Label>
+            <Input id="subject" name="subject" placeholder="Chủ đề bạn muốn trao đổi" required />
+            {state.errors?.subject && (
+              <p className="text-red-500 text-sm">{state.errors.subject[0]}</p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <Label htmlFor="message">Nội dung</Label>
+            <Textarea id="message" name="message" placeholder="Viết nội dung tin nhắn..." rows={5} required />
+            {state.errors?.message && (
+              <p className="text-red-500 text-sm">{state.errors.message[0]}</p>
+            )}
+          </div>
+
+          <Button type="submit" className="w-full" disabled={isPending}>
+            {isPending ? "Đang gửi..." : "Gửi tin nhắn"}
+          </Button>
+        </form>
+      </CardContent>
+    </Card>
+  )}
+</div>
  </div>
 
  {/* Form liên hệ */}

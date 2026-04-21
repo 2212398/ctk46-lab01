@@ -1,7 +1,13 @@
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 export default function AboutPage() {
      return (
  <div className="max-w-5xl mx-auto px-4 py-12">
- <h1 className="text-3xl font-bold mb-6">Giới thiệu</h1>
+<div className="flex items-center gap-4 mb-6">
+  <Avatar className="w-16 h-16">
+    <AvatarFallback className="bg-blue-600 text-white text-2xl">K</AvatarFallback>
+  </Avatar>
+  <h1 className="text-3xl font-bold">Giới thiệu</h1>
+</div>
  <div className="space-y-4 text-gray-700 dark:text-gray-200">
  <p>
  Xin chào! Tôi là <strong>Nguyễn Hoàng Kiệt</strong>, sinh viên năm 4
